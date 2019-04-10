@@ -1,6 +1,6 @@
 flask-webapp
 ========
-boilerplate webapp with flask
+boilerplate flask webapp for AI webservice
 
 ## frontend
 
@@ -21,6 +21,8 @@ boilerplate webapp with flask
 ## todo
 *   jwt
 *   nginx.conf for deployment
+*   config
+*   logger
 
 development
 ========
@@ -36,7 +38,7 @@ $ source venv/bin/activate
 $ source venv/Scripts/activate  # on windows
 $ pip install -r requirements.txt
 
-# migrate db after changing
+# migrate db after changing db.models
 $ python manage.py db init
 $ python manage.py db migrate
 $ python manage.py db upgrade
