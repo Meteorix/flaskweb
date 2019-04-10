@@ -1,11 +1,14 @@
+# encoding=utf-8
 from flask import request
 from flask_restplus import Resource, Namespace, reqparse, fields
+from werkzeug.datastructures import FileStorage
 from flask_login import login_required, current_user
 from webapp.app import db
 from webapp.todo.models import Todo, TodoItem
+import os
 
 
-api = Namespace("api/todos")
+api = Namespace("api")
 
 
 @api.route('/')
@@ -51,3 +54,18 @@ class TodoItems(Resource):
         db.session.add(todo)
         db.session.commit()
         return todo.to_dict()
+
+
+@api.route('/upload')
+class Upload(Resource):
+    upload_parser = api.parser()
+    upload_parser.add_argument('file', location='files', type=FileStorage, required=True)
+
+    @login_required
+    @api.expect(upload_parser)
+    def post(self):
+        fs = request.files['file']
+        filepath = os.path.join("./uploads", fs.filename)
+        print("saving %s to %s" % (fs, filepath))
+        fs.save(filepath)
+        return {"result": "ok"}

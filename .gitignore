@@ -43,3 +43,4 @@ node_modules/
 venv/
 .idea/
 app.db
+uploads/
