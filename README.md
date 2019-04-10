@@ -1,7 +1,8 @@
 flask-webapp
-========
-boilerplate flask webapp for AI webservice
+============
+boilerplate flask webapp for AI webservice or any web project
 
+# features
 ## frontend
 
 *   bootstrap
@@ -14,18 +15,22 @@ boilerplate flask webapp for AI webservice
 *   sqlalchemy
 *   login
 *   admin
-*   rest
+*   restplus
 *   swagger
 *   gunicorn
-
-## todo
-*   jwt
-*   nginx.conf for deployment
 *   config
 *   logger
 
-development
-========
+## todo
+*   use as a 3rd library
+*   nginx.conf for deployment
+*   jwt
+*   setup.py
+*   cythonize
+*   pyinstaller
+*   dockerfile
+
+# development
 ## frontend
 
 nothing to do
@@ -58,15 +63,13 @@ $ python manage.py gvserver
 *   http://127.0.0.1:5000/swagger  # for swagger api
 
 
-deployment
-========
+# deployment
 ```
 ./run_server.sh
 ```
 
-todo: nginx
+todo: nginx / docker
 
-thanks
-======
+# thanks
 *   https://github.com/miguelgrinberg/flasky
 *   https://github.com/JackStouffer/Flask-Foundation
