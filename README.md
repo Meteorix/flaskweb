@@ -31,9 +31,9 @@ nothing to do
 ## backend
 ```
 # setup virtualenv 
-$ virtualenv env
-$ source env/bin/activate
-$ source env/Scripts/activate  # on windows
+$ virtualenv venv
+$ source venv/bin/activate
+$ source venv/Scripts/activate  # on windows
 $ pip install -r requirements.txt
 
 # migrate db after changing
