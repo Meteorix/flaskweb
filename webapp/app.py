@@ -6,7 +6,6 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
-from flask_restplus import Api
 from flask.logging import default_handler
 from logging import Formatter, FileHandler
 from webapp.config import configs
@@ -14,13 +13,12 @@ from webapp.config import configs
 
 db = SQLAlchemy()
 admin = Admin()
-api = Api(doc="/swagger/")
 
 
 def create_app(config_name):
     app = Flask(
         __name__,
-        static_url_path='',
+        static_url_path='/static',
         static_folder='static',
         template_folder='templates',
     )
@@ -46,9 +44,6 @@ def create_app(config_name):
     # admin
     admin.init_app(app)
     admin.add_view(ModelView(auth_models.User, db.session))
-
-    # swagger
-    api.init_app(app)
 
     return app
 

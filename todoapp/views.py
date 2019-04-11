@@ -1,6 +1,6 @@
 # encoding=utf-8
-from flask import request
-from flask_restplus import Resource, Namespace, reqparse, fields
+from flask import request, Blueprint
+from flask_restplus import Resource, Api, reqparse, fields
 from werkzeug.datastructures import FileStorage
 from flask_login import login_required, current_user
 from webapp.app import db
@@ -8,7 +8,8 @@ from todoapp.models import Todo, TodoItem
 import os
 
 
-api = Namespace("api")
+bp = Blueprint("todoapp", "todoapp")
+api = Api(bp, doc="/swagger/", prefix="/api")
 
 
 @api.route('/todo')
