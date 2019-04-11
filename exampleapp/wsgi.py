@@ -3,15 +3,15 @@
 
 from flaskweb.app import create_app, db, admin, ModelView
 
-import exampleapp.models as todo_models
-import exampleapp.views as todo_views
+import models
+import views
 
 
 app = create_app("debug")
-app.register_blueprint(todo_views.bp)
+app.register_blueprint(views.bp)
 # admin
-admin.add_view(ModelView(todo_models.Todo, db.session))
-admin.add_view(ModelView(todo_models.TodoItem, db.session))
+admin.add_view(ModelView(models.Todo, db.session))
+admin.add_view(ModelView(models.TodoItem, db.session))
 
 
 if __name__ == "__main__":

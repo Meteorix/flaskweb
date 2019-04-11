@@ -1,6 +1,6 @@
 from flask_script import Manager
 from flask_migrate import MigrateCommand
-from exampleapp.wsgi import app, db
+from wsgi import app, db
 
 
 manager = Manager(app)

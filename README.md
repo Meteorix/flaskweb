@@ -3,9 +3,13 @@ flask-webapp
 The complete web framework from dev to production
 
 # installation
-
 ```bash
-pip install -U ssh://git@gitlab.shannonai.com:2222/liuxin/flask-webapp.git
+# git clone and install; git pull for later updates
+git clone ssh://git@gitlab.shannonai.com:2222/liuxin/flask-webapp.git
+pip install -e flask-webapp
+
+# or use one cmd
+pip install -U git+ssh://git@gitlab.shannonai.com:2222/liuxin/flask-webapp.git
 ```
 
 # features

@@ -4,11 +4,14 @@ from flask_restplus import Resource, Api, reqparse, fields
 from werkzeug.datastructures import FileStorage
 from flask_login import login_required, current_user
 from flaskweb.app import db
-from exampleapp.models import Todo, TodoItem
+from models import Todo, TodoItem
 import os
 
 
-bp = Blueprint("exampleapp", "exampleapp", static_url_path="", static_folder="dist", template_folder="dist")
+basedir = os.path.dirname(__file__)
+bp = Blueprint("exampleapp", "exampleapp", static_url_path="",
+               static_folder=os.path.join(basedir, "dist"),
+               template_folder=os.path.join(basedir, "dist"))
 api = Api(bp, doc="/swagger/", prefix="/api")
 
 
@@ -76,6 +79,7 @@ class Upload(Resource):
     @api.expect(upload_parser)
     def post(self):
         fs = request.files['file']
+        upload_dir = "./uploads"
         filepath = os.path.join("./uploads", fs.filename)
         print("saving %s to %s" % (fs, filepath))
         fs.save(filepath)
