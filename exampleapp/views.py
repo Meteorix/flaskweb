@@ -17,7 +17,8 @@ api = Api(bp, doc="/swagger/", prefix="/api")
 
 @bp.route("/")
 def index():
-    return render_template("index.html")
+    # create dist/index.html, or default to demo index page
+    return render_template(["index.html", "main.html"])
 
 
 @bp.route("/api/login", methods=["POST"])
@@ -80,7 +81,9 @@ class Upload(Resource):
     def post(self):
         fs = request.files['file']
         upload_dir = "./uploads"
-        filepath = os.path.join("./uploads", fs.filename)
+        if not os.path.exists(upload_dir):
+            os.makedirs(upload_dir)
+        filepath = os.path.join(upload_dir, fs.filename)
         print("saving %s to %s" % (fs, filepath))
         fs.save(filepath)
         return {"result": "ok"}
