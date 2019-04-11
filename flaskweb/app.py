@@ -15,15 +15,16 @@ db = SQLAlchemy()
 admin = Admin()
 
 
-def create_app(config_name):
+def create_app(config):
     app = Flask(
         __name__,
         static_url_path='/static',
         static_folder='static',
         template_folder='templates',
     )
-    conf = configs[config_name]
-    app.config.from_object(conf)
+    if isinstance(config, str):
+        config = configs[config]
+    app.config.from_object(config)
 
     # logging
     create_logger(app)

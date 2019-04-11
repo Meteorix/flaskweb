@@ -1,13 +1,17 @@
 # coding=utf-8
 # Created by Meteorix at 2019/4/10
-
 from flaskweb.app import create_app, db, admin, ModelView
-
+from flaskweb.config import DebugConfig
 from exampleapp import models
 from exampleapp import views
 
 
-app = create_app("debug")
+class MyConfig(DebugConfig):
+    # you can write your own
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///myapp.db'
+
+
+app = create_app(MyConfig)
 app.register_blueprint(views.bp)
 # admin
 admin.add_view(ModelView(models.Todo, db.session))
