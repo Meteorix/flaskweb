@@ -3,26 +3,18 @@ flask-webapp
 The complete web framework from dev to production
 
 # features
-## frontend
-
-*   bootstrap
-*   jquery
-*   flask-admin
-*   flask-swagger
-
-## backend
 *   flask
 *   sqlalchemy
-*   login
-*   admin
-*   restplus
-*   swagger
-*   gunicorn
 *   config
 *   logger
+*   user login
+*   db admin
+*   restful api with swagger ui
+*   gunicorn/gevent deployment
+*   use as a 3rd library
+*   frontend with bootstrap/jquery
 
 ## todo
-*   use as a 3rd library
 *   nginx.conf for deployment
 *   jwt
 *   setup.py
@@ -31,11 +23,6 @@ The complete web framework from dev to production
 *   dockerfile
 
 # development
-## frontend
-
-nothing to do
-
-## backend
 ```
 # setup virtualenv 
 $ virtualenv venv
@@ -50,7 +37,7 @@ $ python manage.py db upgrade
 $ python manage.py db --help
 
 # run server
-$ python -u debug_server.py
+$ PYTHONPATH=. python -u todoapp/wsgi.py
 
 # more scripts
 $ python manage.py runserver
@@ -58,14 +45,15 @@ $ python manage.py shell
 $ python manage.py gvserver
 
 ```
-*   http://127.0.0.1:5000/  # for index page
-*   http://127.0.0.1:5000/admin  # for db admin
-*   http://127.0.0.1:5000/swagger  # for swagger api
+*   http://127.0.0.1:5000/  # for app index page
+*   http://127.0.0.1:5000/main  # for dev index page
+*   http://127.0.0.1:5000/admin  # for db admin page
+*   http://127.0.0.1:5000/swagger  # for swagger ui
 
 
 # deployment
 ```
-./run_server.sh
+$ PYTHONPATH=. python -u todoapp/wsgi.py
 ```
 
 todo: nginx / docker
