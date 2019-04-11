@@ -1,6 +1,6 @@
 from flask_script import Manager
 from flask_migrate import MigrateCommand
-from wsgi import app, db
+from todoapp.wsgi import app, db
 
 
 manager = Manager(app)
@@ -16,8 +16,8 @@ def gvserver(ip="0.0.0.0", port=5000):
 
 @manager.shell
 def make_shell_context():
-    import webapp
-    return dict(app=app, db=db, webapp=webapp)
+    import flaskweb
+    return dict(app=app, db=db, webapp=flaskweb)
 
 
 if __name__ == "__main__":

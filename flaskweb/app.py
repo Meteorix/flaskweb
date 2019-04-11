@@ -8,7 +8,7 @@ from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
 from flask.logging import default_handler
 from logging import Formatter, FileHandler
-from webapp.config import configs
+from flaskweb.config import configs
 
 
 db = SQLAlchemy()
@@ -33,9 +33,9 @@ def create_app(config_name):
     migrate = Migrate(app, db)
 
     # views
-    import webapp.views as main_views
-    import webapp.auth.models as auth_models
-    import webapp.auth.views as auth_views
+    import flaskweb.views as main_views
+    import flaskweb.auth.models as auth_models
+    import flaskweb.auth.views as auth_views
 
     auth_views.login_manager.init_app(app)
     app.register_blueprint(main_views.bp)

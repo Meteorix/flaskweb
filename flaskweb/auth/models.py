@@ -1,5 +1,5 @@
 """db models."""
-from webapp.app import db
+from flaskweb.app import db
 
 
 class User(db.Model):

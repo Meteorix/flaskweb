@@ -13,11 +13,11 @@ reqs = parse_requirements('requirements.txt')
 
 
 setup(
-    name='webapp',
+    name='flaskweb',
     version='1.0.26',
     author='meteorix',
     author_email='lxhustauto@gmail.com',
-    description='web framework for AI',
+    description='complete web framework from dev to production',
     packages=find_packages(exclude=['todoapp', 'migrations', 'uploads']),
     include_package_data=True,
     install_requires=reqs,

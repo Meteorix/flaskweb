@@ -1,7 +1,7 @@
 # coding=utf-8
 # Created by Meteorix at 2019/4/10
 
-from webapp.app import create_app, db, admin, ModelView
+from flaskweb.app import create_app, db, admin, ModelView
 
 import todoapp.models as todo_models
 import todoapp.views as todo_views

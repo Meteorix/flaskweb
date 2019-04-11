@@ -1,4 +1,4 @@
-from webapp.app import db
+from flaskweb.app import db
 from datetime import datetime
 import json
 
