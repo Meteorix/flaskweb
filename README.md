@@ -2,6 +2,12 @@ flask-webapp
 ============
 The complete web framework from dev to production
 
+# installation
+
+```bash
+pip install -U ssh://git@gitlab.shannonai.com:2222/liuxin/flask-webapp.git
+```
+
 # features
 *   flask
 *   sqlalchemy
