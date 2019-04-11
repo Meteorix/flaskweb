@@ -2,7 +2,7 @@
 # Created by Meteorix at 2019/4/10
 import os
 import logging
-basedir = os.path.abspath(os.path.dirname(__file__))
+basedir = os.getcwd()
 
 
 class Config(object):

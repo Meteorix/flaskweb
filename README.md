@@ -1,6 +1,6 @@
 flask-webapp
 ============
-boilerplate flask webapp for AI webservice or any web project
+The complete web framework from dev to production
 
 # features
 ## frontend

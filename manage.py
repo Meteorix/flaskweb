@@ -17,7 +17,7 @@ def gvserver(ip="0.0.0.0", port=5000):
 @manager.shell
 def make_shell_context():
     import webapp
-    return dict(app=app, db=db, flask_react_app=webapp)
+    return dict(app=app, db=db, webapp=webapp)
 
 
 if __name__ == "__main__":
