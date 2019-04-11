@@ -4,11 +4,15 @@ from flaskweb.app import create_app, db, admin, ModelView
 from flaskweb.config import DebugConfig
 from example import models
 from example import views
+import os
+
+basedir = os.path.dirname(__file__)
 
 
 class MyConfig(DebugConfig):
     # you can write your own
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///myapp.db'
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'app.db')
+    LOGGING_FILE = os.path.join(basedir, "app.log")
 
 
 app = create_app(MyConfig)
