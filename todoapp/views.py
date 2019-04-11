@@ -1,5 +1,5 @@
 # encoding=utf-8
-from flask import request, Blueprint
+from flask import request, Blueprint, render_template, redirect
 from flask_restplus import Resource, Api, reqparse, fields
 from werkzeug.datastructures import FileStorage
 from flask_login import login_required, current_user
@@ -8,8 +8,18 @@ from todoapp.models import Todo, TodoItem
 import os
 
 
-bp = Blueprint("todoapp", "todoapp")
+bp = Blueprint("todoapp", "todoapp", static_url_path="", static_folder="dist", template_folder="dist")
 api = Api(bp, doc="/swagger/", prefix="/api")
+
+
+@bp.route("/")
+def index():
+    return render_template("index.html")
+
+
+@bp.route("/api/login", methods=["POST"])
+def login():
+    return redirect("/login")
 
 
 @api.route('/todo')

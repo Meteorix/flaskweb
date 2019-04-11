@@ -8,7 +8,7 @@ bp = Blueprint("main", "main", url_prefix="/main")
 @bp.route('/')
 def index():
     app.logger.info("got you")
-    return render_template('index.html')
+    return render_template('main.html')
 
 
 @bp.route('/user')
