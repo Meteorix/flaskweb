@@ -4,14 +4,14 @@ from flask_restplus import Resource, Namespace, reqparse, fields
 from werkzeug.datastructures import FileStorage
 from flask_login import login_required, current_user
 from webapp.app import db
-from webapp.todo.models import Todo, TodoItem
+from todoapp.models import Todo, TodoItem
 import os
 
 
 api = Namespace("api")
 
 
-@api.route('/')
+@api.route('/todo')
 class Todos(Resource):
 
     post_parser = api.model('todo post', {
@@ -35,7 +35,7 @@ class Todos(Resource):
         return todo.to_dict()
 
 
-@api.route('/<int:tid>')
+@api.route('/todo/<int:tid>')
 class TodoItems(Resource):
 
     post_parser = reqparse.RequestParser()

@@ -10,10 +10,11 @@ from flask_restplus import Api
 from flask.logging import default_handler
 from logging import Formatter, FileHandler
 from webapp.config import configs
-import logging
 
 
 db = SQLAlchemy()
+admin = Admin()
+api = Api(doc="/swagger/")
 
 
 def create_app(config_name):
@@ -37,22 +38,17 @@ def create_app(config_name):
     import webapp.views as main_views
     import webapp.auth.models as auth_models
     import webapp.auth.views as auth_views
-    import webapp.todo.models as todo_models
-    import webapp.todo.views as todo_views
 
     auth_views.login_manager.init_app(app)
     app.register_blueprint(main_views.bp)
     app.register_blueprint(auth_views.bp)
 
     # admin
-    admin = Admin(app)
+    admin.init_app(app)
     admin.add_view(ModelView(auth_models.User, db.session))
-    admin.add_view(ModelView(todo_models.Todo, db.session))
-    admin.add_view(ModelView(todo_models.TodoItem, db.session))
 
     # swagger
-    api = Api(app, doc="/swagger/")
-    api.add_namespace(todo_views.api)
+    api.init_app(app)
 
     return app
 
