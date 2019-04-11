@@ -11,9 +11,10 @@ app = create_app("debug")
 # admin
 admin.add_view(ModelView(todo_models.Todo, db.session))
 admin.add_view(ModelView(todo_models.TodoItem, db.session))
-# api
+# swagger api
 api.add_namespace(todo_views.api)
 
 
 if __name__ == "__main__":
+    # for debug only
     app.run()
