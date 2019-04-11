@@ -17,14 +17,15 @@ def load_user(uid):
 @bp.route("/login", methods=["GET", "POST"])
 def login():
     form = LoginForm()
+    nexturl = request.args.get("next", "")
 
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).one()
         login_user(user)
 
-        return redirect(request.args.get("next") or url_for("main.index"))
+        return redirect(nexturl or url_for("main.index"))
 
-    return render_template("login.html", form=form)
+    return render_template("login.html", form=form, nexturl=nexturl)
 
 
 @bp.route('/logout')

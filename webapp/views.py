@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, current_app as app
+from flask import Blueprint, render_template, redirect, current_app as app
 from flask_login import login_required, current_user
 
 
@@ -16,3 +16,9 @@ def index():
 def user():
     app.logger.error("got a fake error")
     return 'hello world %s' % current_user.username
+
+
+@bp.route('/doc')
+@login_required
+def doc():
+    return redirect("/swagger")
