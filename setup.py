@@ -18,7 +18,7 @@ setup(
     author='meteorix',
     author_email='lxhustauto@gmail.com',
     description='complete web framework from dev to production',
-    packages=find_packages(exclude=['todoapp', 'migrations', 'uploads']),
+    packages=find_packages(exclude=['exampleapp', 'migrations', 'uploads']),
     include_package_data=True,
     install_requires=reqs,
 )

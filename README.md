@@ -43,7 +43,7 @@ $ python manage.py db upgrade
 $ python manage.py db --help
 
 # run server
-$ PYTHONPATH=. python -u todoapp/wsgi.py
+$ PYTHONPATH=. python -u exampleapp/wsgi.py
 
 # more scripts
 $ python manage.py runserver
@@ -59,7 +59,7 @@ $ python manage.py gvserver
 
 # deployment
 ```
-$ PYTHONPATH=. python -u todoapp/wsgi.py
+$ PYTHONPATH=. python -u exampleapp/wsgi.py
 ```
 
 todo: nginx / docker

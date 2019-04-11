@@ -4,11 +4,11 @@ from flask_restplus import Resource, Api, reqparse, fields
 from werkzeug.datastructures import FileStorage
 from flask_login import login_required, current_user
 from flaskweb.app import db
-from todoapp.models import Todo, TodoItem
+from exampleapp.models import Todo, TodoItem
 import os
 
 
-bp = Blueprint("todoapp", "todoapp", static_url_path="", static_folder="dist", template_folder="dist")
+bp = Blueprint("exampleapp", "exampleapp", static_url_path="", static_folder="dist", template_folder="dist")
 api = Api(bp, doc="/swagger/", prefix="/api")
 
 

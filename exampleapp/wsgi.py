@@ -3,8 +3,8 @@
 
 from flaskweb.app import create_app, db, admin, ModelView
 
-import todoapp.models as todo_models
-import todoapp.views as todo_views
+import exampleapp.models as todo_models
+import exampleapp.views as todo_views
 
 
 app = create_app("debug")
