@@ -2,11 +2,11 @@
 # Created by Meteorix at 2019/4/10
 from flaskweb.app import create_app, db, admin, ModelView
 from flaskweb.config import DebugConfig
-from example import models
-from example import views
+import models
+import views
 import os
 
-basedir = os.path.dirname(__file__)
+basedir = os.path.dirname(os.path.abspath(__file__))
 
 
 class MyConfig(DebugConfig):

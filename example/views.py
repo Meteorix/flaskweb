@@ -4,7 +4,7 @@ from flask_restplus import Resource, Api, reqparse, fields
 from werkzeug.datastructures import FileStorage
 from flask_login import login_required, current_user
 from flaskweb.app import db
-from example.models import Todo, TodoItem
+from models import Todo, TodoItem
 import os
 
 
