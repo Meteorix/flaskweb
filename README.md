@@ -37,23 +37,18 @@ pip install -U git+ssh://git@gitlab.shannonai.com:2222/liuxin/flask-webapp.git
 # setup virtualenv 
 $ virtualenv venv
 $ source venv/bin/activate
-$ source venv/Scripts/activate  # on windows
-$ pip install -r requirements.txt
+$ source venv/Scripts/activate  # git-bash on windows
+$ pip install -e .
 
 # migrate db after changing db.models
-$ python manage.py db init
-$ python manage.py db migrate
-$ python manage.py db upgrade
-$ python manage.py db --help
+$ cd example
+$ flask db init
+$ flask db upgrade
+$ flask db migrate
+$ flask db --help
 
 # run server
-$ PYTHONPATH=. python -u exampleapp/wsgi.py
-
-# more scripts
-$ python manage.py runserver
-$ python manage.py shell
-$ python manage.py gvserver
-
+$ python wsgi.py
 ```
 *   http://127.0.0.1:5000/  # for app index page
 *   http://127.0.0.1:5000/main  # for dev index page
@@ -63,10 +58,10 @@ $ python manage.py gvserver
 
 # deployment
 ```
-$ PYTHONPATH=. python -u exampleapp/wsgi.py
+$ python wsgi.py
 ```
 
-todo: nginx / docker
+todo: gunicorn / nginx / docker
 
 # thanks
 *   https://github.com/miguelgrinberg/flasky
