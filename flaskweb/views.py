@@ -7,14 +7,12 @@ bp = Blueprint("main", "main", url_prefix="/main")
 
 @bp.route('/')
 def index():
-    app.logger.info("got you")
     return render_template('main.html')
 
 
 @bp.route('/user')
 @login_required
 def user():
-    app.logger.error("got a fake error")
     return 'hello world %s' % current_user.username
 
 

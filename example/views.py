@@ -1,5 +1,5 @@
 # encoding=utf-8
-from flask import request, Blueprint, render_template, redirect
+from flask import request, Blueprint, render_template, redirect, current_app as app
 from flask_restplus import Resource, Api, reqparse, fields
 from werkzeug.datastructures import FileStorage
 from flask_login import login_required, current_user
@@ -18,6 +18,8 @@ api = Api(bp, doc="/swagger/", prefix="/api")
 @bp.route("/")
 def index():
     # create dist/index.html, or default to demo index page
+    app.logger.info("got you at index")
+    app.logger.error("got a fake error")
     return render_template(["index.html", "main.html"])
 
 
@@ -80,10 +82,10 @@ class Upload(Resource):
     @api.expect(upload_parser)
     def post(self):
         fs = request.files['file']
-        upload_dir = "./uploads"
+        upload_dir = app.config["UPLOAD_DIR"]
         if not os.path.exists(upload_dir):
             os.makedirs(upload_dir)
         filepath = os.path.join(upload_dir, fs.filename)
-        print("saving %s to %s" % (fs, filepath))
+        app.logger.info("saving %s to %s" % (fs, filepath))
         fs.save(filepath)
         return {"result": "ok"}
