@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, redirect, current_app as app
+from flask import Blueprint, render_template, redirect
 from flask_login import login_required, current_user
 
 

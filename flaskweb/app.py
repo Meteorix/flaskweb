@@ -32,6 +32,7 @@ def create_app(config):
 
     # db
     db.init_app(app)
+    app.logger.info("init db %s" % config.SQLALCHEMY_DATABASE_URI)
     migrate = Migrate(app, db)
 
     # views
