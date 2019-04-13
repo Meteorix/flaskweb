@@ -45,3 +45,4 @@ venv/
 app.db
 myapp.db
 uploads/
+simple/migrations
