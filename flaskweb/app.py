@@ -9,6 +9,7 @@ from flask_admin.contrib.sqla import ModelView
 from flask.logging import default_handler
 from logging import Formatter, FileHandler
 from flaskweb.config import configs
+from gevent.pywsgi import WSGIServer
 
 
 db = SQLAlchemy()
@@ -58,3 +59,8 @@ def create_logger(app):
     file_handler.setFormatter(formatter)
     app.logger.addHandler(file_handler)
     app.logger.setLevel(app.config["LOGGING_LEVEL"])
+
+
+def gevent_run(app, host="127.0.0.1", port=5000):
+    print("gevent server staring on http://%s:%s" % (host, port))
+    WSGIServer((host, int(port)), app).serve_forever()
