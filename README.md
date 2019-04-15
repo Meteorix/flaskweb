@@ -118,7 +118,7 @@ A more [sophisticated example](./example)
 
 1. 当然你需要先添加用户
 
-    访问admin页面 http://127.0.0.1:5000/admin/user，点击``create``新建用户
+    访问admin页面 [http://127.0.0.1:5000/admin/user](http://127.0.0.1:5000/admin/user)，点击``create``新建用户
 
 1. 定义数据库orm，使用admin页面管理
 
