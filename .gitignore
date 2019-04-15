@@ -46,3 +46,5 @@ app.db
 myapp.db
 uploads/
 simple/migrations
+example/static/*
+example/templates/*
