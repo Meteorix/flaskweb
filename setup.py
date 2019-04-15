@@ -17,7 +17,7 @@ setup(
     version='0.0.4',
     author='meteorix',
     author_email='lxhustauto@gmail.com',
-    description='complete web framework from dev to production',
+    description='An easy to start yet full-featured web framework',
     packages=find_packages(exclude=['example', 'simple']),
     include_package_data=True,
     install_requires=reqs,

@@ -1,6 +1,6 @@
-flask-webapp
+flaskweb
 ============
-The complete web framework from dev to production
+An easy to start yet [full-featured](#features) web framework
 
 # Quickstart
 基本语法与flask几乎一样，几行代码即可构建一个web服务器
@@ -43,8 +43,8 @@ A more [sophisticated example](./example)
 pip install -U flaskweb
 
 # or git clone and install; git pull for later updates
-git clone git@github.com:Meteorix/flask-webapp.git
-pip install -e flask-webapp
+git clone git@github.com:Meteorix/flaskweb.git
+pip install -e flaskweb
 ```
 
 # Features
@@ -61,8 +61,8 @@ pip install -e flask-webapp
 
 ## todo
 *   deployment: nginx/gunicorn
+*   tensorflow/pytorch webapp sample
 *   jwt
-*   setup.py
 *   cythonize
 *   pyinstaller
 *   dockerfile
