@@ -11,9 +11,7 @@ import os
 
 basedir = os.path.dirname(__file__)
 modname = "example"
-bp = Blueprint(modname, modname, static_url_path="",
-               static_folder=os.path.join(basedir, "dist"),
-               template_folder=os.path.join(basedir, "dist"))
+bp = Blueprint(modname, modname, static_url_path="")
 api = Namespace(modname)
 
 
