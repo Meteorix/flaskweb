@@ -14,7 +14,7 @@ reqs = parse_requirements('requirements.txt')
 
 setup(
     name='flaskweb',
-    version='0.0.3',
+    version='0.0.4',
     author='meteorix',
     author_email='lxhustauto@gmail.com',
     description='complete web framework from dev to production',

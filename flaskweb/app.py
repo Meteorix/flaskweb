@@ -7,6 +7,7 @@ from flask_migrate import Migrate
 from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
 from flask.logging import default_handler
+from flask_restplus import Resource, Api, reqparse, fields
 from logging import Formatter, FileHandler
 from flaskweb.config import configs
 from gevent.pywsgi import WSGIServer
@@ -14,6 +15,7 @@ from gevent.pywsgi import WSGIServer
 
 db = SQLAlchemy()
 admin = Admin()
+api = Api(doc="/swagger/", prefix="/api")
 
 
 def create_app(config):

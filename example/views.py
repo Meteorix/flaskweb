@@ -1,9 +1,9 @@
 # encoding=utf-8
 from flask import request, Blueprint, render_template, redirect, current_app as app
-from flask_restplus import Resource, Api, reqparse, fields
+from flask_restplus import Resource, reqparse, fields
 from werkzeug.datastructures import FileStorage
 from flask_login import login_required, current_user
-from flaskweb.app import db
+from flaskweb.app import db, api
 from models import Todo, TodoItem
 import os
 
@@ -12,7 +12,7 @@ basedir = os.path.dirname(__file__)
 bp = Blueprint("example", "example", static_url_path="",
                static_folder=os.path.join(basedir, "dist"),
                template_folder=os.path.join(basedir, "dist"))
-api = Api(bp, doc="/swagger/", prefix="/api")
+api.init_app(bp)
 
 
 @bp.route("/")
