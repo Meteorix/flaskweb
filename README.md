@@ -2,17 +2,14 @@ Flaskweb
 ============
 An easy to start yet [full-featured](#features) web framework
 
-# Table of Contents
-
-   * [Flaskweb](#flaskweb)
-   * [Installation](#installation)
-   * [Quickstart](#quickstart)
-   * [Features](#features)
-      * [todo](#todo)
-   * [Tutorial](#tutorial)
-      * [10分钟速成版](#10分钟速成版)
-      * [Serious python web developer version <g-emoji class="g-emoji" alias="alien" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f47d.png">👽</g-emoji>](#serious-python-web-developer-version-alien)
-   * [Thanks](#thanks)
+* [Installation](#installation)
+* [Quickstart](#quickstart)
+* [Features](#features)
+  * [more todos](#more-todos)
+* [Tutorial](#tutorial)
+  * [10分钟速成版](#10分钟速成版)
+  * [Serious python web developer version <g-emoji class="g-emoji" alias="alien" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f47d.png">👽</g-emoji>](#serious-python-web-developer-version-alien)
+* [Thanks](#thanks)
 
 # Installation
 ```bash
@@ -79,7 +76,7 @@ A more [sophisticated example](./example)
 *   use as a 3rd library
 *   frontend with bootstrap/jquery
 
-## todo
+## more todos
 *   deployment: nginx/gunicorn
 *   more samples: tensorflow/pytorch webapp
 *   jwt
@@ -144,6 +141,7 @@ A more [sophisticated example](./example)
 1. ...
 1. http/tcp协议《http权威指南》
 1. linux知识《APUE》
+1. ...
 
 # Thanks
 *   https://github.com/miguelgrinberg/flasky
