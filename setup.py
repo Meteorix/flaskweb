@@ -14,11 +14,11 @@ reqs = parse_requirements('requirements.txt')
 
 setup(
     name='flaskweb',
-    version='0.0.2',
+    version='0.0.3',
     author='meteorix',
     author_email='lxhustauto@gmail.com',
     description='complete web framework from dev to production',
-    packages=find_packages(exclude=['example', 'migrations', 'uploads']),
+    packages=find_packages(exclude=['example', 'simple']),
     include_package_data=True,
     install_requires=reqs,
 )

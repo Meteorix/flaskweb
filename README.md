@@ -2,7 +2,7 @@ flask-webapp
 ============
 The complete web framework from dev to production
 
-# quickstart
+# Quickstart
 基本语法与flask几乎一样，几行代码即可构建一个web服务器
 ```python
 from flaskweb.app import create_app, gevent_run
@@ -38,17 +38,16 @@ then visit http://127.0.0.1:5000/
 
 A more [sophisticated example](./example)
 
-# installation
+# Installation
 ```bash
-# git clone and install; git pull for later updates
-git clone ssh://git@gitlab.shannonai.com:2222/liuxin/flask-webapp.git
-pip install -e flask-webapp
+pip install -U flaskweb
 
-# or use one cmd
-pip install -U git+ssh://git@gitlab.shannonai.com:2222/liuxin/flask-webapp.git
+# or git clone and install; git pull for later updates
+git clone git@github.com:Meteorix/flask-webapp.git
+pip install -e flask-webapp
 ```
 
-# features
+# Features
 *   flask
 *   sqlalchemy
 *   config
@@ -61,44 +60,13 @@ pip install -U git+ssh://git@gitlab.shannonai.com:2222/liuxin/flask-webapp.git
 *   frontend with bootstrap/jquery
 
 ## todo
-*   nginx.conf for deployment
+*   deployment: nginx/gunicorn
 *   jwt
 *   setup.py
 *   cythonize
 *   pyinstaller
 *   dockerfile
 
-# development
-```
-# setup virtualenv 
-$ virtualenv venv
-$ source venv/bin/activate
-$ source venv/Scripts/activate  # git-bash on windows
-$ pip install -e .
-
-# migrate db after changing db.models
-$ cd example
-$ flask db init
-$ flask db upgrade
-$ flask db migrate
-$ flask db --help
-
-# run server
-$ python wsgi.py
-```
-*   http://127.0.0.1:5000/  # for app index page
-*   http://127.0.0.1:5000/main  # for dev index page
-*   http://127.0.0.1:5000/admin  # for db admin page
-*   http://127.0.0.1:5000/swagger  # for swagger ui
-
-
-# deployment
-```
-$ python wsgi.py
-```
-
-todo: gunicorn / nginx / docker
-
-# thanks
+# Thanks
 *   https://github.com/miguelgrinberg/flasky
 *   https://github.com/JackStouffer/Flask-Foundation

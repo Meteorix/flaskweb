@@ -1,0 +1,3 @@
+include requirements.txt
+include flaskweb/static/*/*/*
+include flaskweb/templates/*
