@@ -78,7 +78,7 @@ A more [sophisticated example](./example)
 
 # Tutorial
 
-10分钟速成
+## 10分钟速成版
 
 假设你有python和flask基础，介绍如何利用flaskweb速成
 
@@ -123,7 +123,7 @@ A more [sophisticated example](./example)
 1. 10分钟差不多都学会啦
 
 
-:hushed: Serious python web developer roadmap
+## Serious python web developer version :alien:
 1. python basics
 1. [flask quickstart](http://docs.jinkan.org/docs/flask/quickstart.html)
 1. [sql基础](http://www.runoob.com/mysql/mysql-tutorial.html)
