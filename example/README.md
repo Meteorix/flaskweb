@@ -1,4 +1,4 @@
-Example Flask Web
+Example Flaskweb
 =================
 ```
 $ pip install -U flaskweb

@@ -1,6 +1,15 @@
-flaskweb
+Flaskweb
 ============
 An easy to start yet [full-featured](#features) web framework
+
+# Installation
+```bash
+pip install -U flaskweb
+
+# or git clone and install; git pull for later updates
+git clone git@github.com:Meteorix/flaskweb.git
+pip install -e flaskweb
+```
 
 # Quickstart
 基本语法与flask几乎一样，几行代码即可构建一个web服务器
@@ -24,6 +33,12 @@ if __name__ == "__main__":
 *   restapi/swaggerui
 *   gevent服务器
 
+|||
+|-------|---------|
+|![main](./docs/images/main.jpg)|![!login](./docs/images/login.jpg)|
+|![!api](./docs/images/api.jpg) |![!admin](./docs/images/admin.jpg)|
+
+
 try it:
 ```bash
 cd simple
@@ -38,14 +53,7 @@ then visit http://127.0.0.1:5000/
 
 A more [sophisticated example](./example)
 
-# Installation
-```bash
-pip install -U flaskweb
 
-# or git clone and install; git pull for later updates
-git clone git@github.com:Meteorix/flaskweb.git
-pip install -e flaskweb
-```
 
 # Features
 *   flask
@@ -66,6 +74,10 @@ pip install -e flaskweb
 *   cythonize
 *   pyinstaller
 *   dockerfile
+
+# Tutorial
+
+to be continued...
 
 # Thanks
 *   https://github.com/miguelgrinberg/flasky
