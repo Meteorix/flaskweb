@@ -5,10 +5,10 @@ An easy to start yet [full-featured](#features) web framework
 * [Installation](#installation)
 * [Quickstart](#quickstart)
 * [Features](#features)
-  * [more todos](#more-todos)
+    * [more todos](#more-todos)
 * [Tutorial](#tutorial)
-  * [10分钟速成版](#10分钟速成版)
-  * [Serious python web developer version <g-emoji class="g-emoji" alias="alien" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f47d.png">👽</g-emoji>](#serious-python-web-developer-version-alien)
+    * [10分钟速成版](#10分钟速成版)
+    * [Serious python web developer version <g-emoji class="g-emoji" alias="alien" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f47d.png">👽</g-emoji>](#serious-python-web-developer-version-alien)
 * [Thanks](#thanks)
 
 # Installation
@@ -94,6 +94,7 @@ A more [sophisticated example](./example)
 1. 创建新的项目
 
     将[example](./example)目录copy到你的项目中，作为启动模板
+
 1. 定义url，返回默认html页面
     ```python
     @app.route("/")
@@ -104,6 +105,7 @@ A more [sophisticated example](./example)
     ```bash
     python app.py
     ```
+
 1. 创建sqlite数据库，使用内置的用户登录系统
     ```bash
     cd simple
@@ -112,7 +114,11 @@ A more [sophisticated example](./example)
     flask db upgrade
     flask db migrate
     ```
-    重启服务器,可以访问 http://127.0.0.1:5000/login
+    重启服务器，访问登陆页面 http://127.0.0.1:5000/login
+
+1. 当然你需要先添加用户
+
+    访问admin页面 http://127.0.0.1:5000/admin/user，点击``create``新建用户
 
 1. 定义数据库orm，使用admin页面管理
 
