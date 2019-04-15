@@ -103,7 +103,7 @@ A more [sophisticated example](./example)
     ```
     启动服务器，访问 http://127.0.0.1:5000/
     ```bash
-    python app.py
+    python wsgi.py
     ```
 
 1. 创建sqlite数据库，使用内置的用户登录系统
