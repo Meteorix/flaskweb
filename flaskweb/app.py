@@ -46,6 +46,9 @@ def create_app(config):
     app.register_blueprint(main_views.bp)
     app.register_blueprint(auth_views.bp)
 
+    # api
+    api.init_app(app)
+
     # admin
     admin.init_app(app)
     admin.add_view(ModelView(auth_models.User, db.session))

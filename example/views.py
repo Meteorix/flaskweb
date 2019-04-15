@@ -1,18 +1,19 @@
 # encoding=utf-8
 from flask import request, Blueprint, render_template, redirect, current_app as app
-from flask_restplus import Resource, reqparse, fields
+from flask_restplus import Namespace, Resource, reqparse, fields
 from werkzeug.datastructures import FileStorage
 from flask_login import login_required, current_user
-from flaskweb.app import db, api
+from flaskweb.app import db
 from models import Todo, TodoItem
 import os
 
 
 basedir = os.path.dirname(__file__)
+print(__name__)
 bp = Blueprint("example", "example", static_url_path="",
                static_folder=os.path.join(basedir, "dist"),
                template_folder=os.path.join(basedir, "dist"))
-api.init_app(bp)
+api = Namespace("example")
 
 
 @bp.route("/")
