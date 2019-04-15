@@ -20,12 +20,18 @@ def login():
     nexturl = request.args.get("next", "")
 
     if form.validate_on_submit():
-        user = User.query.filter_by(username=form.username.data).one()
-        login_user(user)
-
-        return redirect(nexturl or url_for("main.index"))
+        if check_user_login(form.username.data, form.password.data):
+            return redirect(nexturl or url_for("main.index"))
 
     return render_template("login.html", form=form, nexturl=nexturl)
+
+
+def check_user_login(username, password):
+    user = User.query.filter_by(username=username).one()
+    if user.check_password(password):
+        login_user(user)
+        return True
+    return False
 
 
 @bp.route('/logout')

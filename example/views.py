@@ -1,19 +1,20 @@
 # encoding=utf-8
-from flask import request, Blueprint, render_template, redirect, current_app as app
+from flask import request, Blueprint, render_template, redirect, url_for, current_app as app
 from flask_restplus import Namespace, Resource, reqparse, fields
 from werkzeug.datastructures import FileStorage
 from flask_login import login_required, current_user
 from flaskweb.app import db
+from flaskweb.auth.views import check_user_login
 from models import Todo, TodoItem
 import os
 
 
 basedir = os.path.dirname(__file__)
-print(__name__)
-bp = Blueprint("example", "example", static_url_path="",
+modname = "example"
+bp = Blueprint(modname, modname, static_url_path="",
                static_folder=os.path.join(basedir, "dist"),
                template_folder=os.path.join(basedir, "dist"))
-api = Namespace("example")
+api = Namespace(modname)
 
 
 @bp.route("/")
@@ -26,7 +27,14 @@ def index():
 
 @bp.route("/api/login", methods=["POST"])
 def login():
-    return redirect("/login")
+    # rewrite login api
+    data = request.get_json()
+    username = data.get("username")
+    password = data.get("password")
+    if check_user_login(username, password):
+        return redirect(url_for(modname + ".index"))
+    else:
+        return "login error", 400
 
 
 @api.route('/todo')
