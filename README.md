@@ -75,6 +75,7 @@ A more [sophisticated example](./example)
 *   gunicorn/gevent deployment
 *   use as a 3rd library
 *   frontend with bootstrap/jquery
+*   setup.py for distribution
 
 ## more todos
 *   deployment: nginx/gunicorn
@@ -153,12 +154,32 @@ A more [sophisticated example](./example)
 
 # Development
 
+Develop flaskweb framework
+
+```bach
+virtualenv venv
+source venv/bin/activate
+pip install -r requirements
+```
+
+Build and upload to pypi
 ```bash
 python setup.py build
 python setup.py sdist
-# release to pypi
+pip install twine  # for pypi upload
 python -m twine upload dist/...
 ```
+
+# Distribution
+
+Distribute example project using [setup.py](example/setup.py)
+
+```bash
+cd example
+python setup.py build
+python setup.py sdist --formats=zip
+```
+
 
 # Thanks
 *   https://github.com/miguelgrinberg/flasky
