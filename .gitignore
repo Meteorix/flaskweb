@@ -48,3 +48,5 @@ uploads/
 simple/migrations
 example/static/*
 example/templates/*
+
+gh-md-toc
