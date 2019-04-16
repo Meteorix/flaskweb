@@ -1,7 +1,7 @@
-from flask import redirect, request, url_for, render_template, Blueprint
+from flask import redirect, request, url_for, flash, render_template, Blueprint
 from flask_login import LoginManager, login_user, logout_user, login_required
-from .models import User
-from .forms import LoginForm
+from .models import db, User
+from .forms import LoginForm, RegistrationForm
 
 bp = Blueprint("auth", "auth")
 
@@ -39,3 +39,18 @@ def check_user_login(username, password):
 def logout():
     logout_user()
     return redirect(url_for('main.index'))
+
+
+@bp.route('/register', methods=['GET', 'POST'])
+def register():
+    form = RegistrationForm()
+    if form.validate_on_submit():
+        user = User(email=form.email.data,
+                    username=form.username.data,
+                    password=form.password.data)
+        db.session.add(user)
+        db.session.commit()
+        # todo: email verification process
+        flash('Please ask website admin to activate your account')
+        return redirect(url_for('auth.login'))
+    return render_template('register.html', form=form)

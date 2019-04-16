@@ -1,13 +1,14 @@
 # coding=utf-8
 # Created by Meteorix at 2019/4/10
 
-from flask import Flask
+from flask import Flask, abort
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-from flask_admin import Admin
-from flask_admin.contrib.sqla import ModelView
+from flask_admin import Admin, AdminIndexView, expose
+from flask_admin.contrib.sqla import ModelView as _ModelView
 from flask.logging import default_handler
-from flask_restplus import Resource, Api, reqparse, fields
+from flask_login import current_user
+from flask_restplus import Api
 from logging import Formatter, FileHandler
 from flaskweb.config import configs
 from gevent.pywsgi import WSGIServer
@@ -50,7 +51,7 @@ def create_app(config):
     api.init_app(app)
 
     # admin
-    admin.init_app(app)
+    admin.init_app(app, index_view=AdminIndex())
     admin.add_view(ModelView(auth_models.User, db.session))
 
     return app
@@ -70,3 +71,16 @@ def create_logger(app):
 def gevent_run(app, host="127.0.0.1", port=5000):
     print("gevent server staring on http://%s:%s" % (host, port))
     WSGIServer((host, int(port)), app).serve_forever()
+
+
+class ModelView(_ModelView):
+    def is_accessible(self):
+        return current_user.is_admin
+
+
+class AdminIndex(AdminIndexView):
+    @expose("/")
+    def index(self):
+        if not current_user.is_admin:
+            return abort(403)
+        return super().index()

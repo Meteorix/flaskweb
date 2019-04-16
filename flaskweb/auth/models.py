@@ -17,6 +17,7 @@ class User(db.Model):
     password = db.Column(db.String)
     email = db.Column(db.String)
     authenticated = db.Column(db.Boolean, default=False)
+    is_admin = db.Column(db.Boolean, default=False)
 
     def check_password(self, value):
         # return check_password_hash(self.password, value)

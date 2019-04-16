@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Flaskweb{% endblock %}
+
+{% block body %}
+    <h1 class="text-center">Flaskweb Register</h1>
+
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <form role="form" action="{{ url_for('.register') }}" method="post">
+                {{ form.hidden_tag() }}
+                {% for f in form if f.type != 'CSRFTokenField' %}
+                    <div class="form-group">
+                        {{ f.label }}
+                        {% if f.errors %}
+                        <ul>
+                            {% for e in f.errors %}
+                            <li>{{ e }}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                        {{ f(class_="form-control") }}
+                    </div>
+                {% endfor %}
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+{% endblock %}

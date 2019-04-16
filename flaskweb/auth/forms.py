@@ -2,15 +2,15 @@
 # Created by Meteorix at 2019/4/10
 
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField
-from wtforms import validators
+from wtforms import StringField, PasswordField, SubmitField, ValidationError
+from wtforms.validators import required, optional, Length, Email, Regexp, DataRequired, EqualTo
 
 from .models import User
 
 
 class LoginForm(FlaskForm):
-    username = StringField('Username', validators=[validators.required()])
-    password = PasswordField('Password', validators=[validators.optional()])
+    username = StringField('Username', validators=[required()])
+    password = PasswordField('Password', validators=[optional()])
 
     def validate(self):
         check_validate = super(LoginForm, self).validate()
@@ -31,3 +31,19 @@ class LoginForm(FlaskForm):
             return False
 
         return True
+
+
+class RegistrationForm(FlaskForm):
+    username = StringField('Username', validators=[DataRequired(), Length(1, 64), Regexp('^[A-Za-z][A-Za-z0-9_.]*$', 0,
+                           'Username must have only letters, numbers, dots or underscores')])
+    password = PasswordField('Password', validators=[DataRequired(), EqualTo('password2', message='Passwords not match.')])
+    password2 = PasswordField('Confirm password', validators=[DataRequired()])
+    email = StringField('Email', validators=[DataRequired(), Length(1, 64), Email()])
+
+    def validate_email(self, field):
+        if User.query.filter_by(email=field.data).first():
+            raise ValidationError('Email already registered.')
+
+    def validate_username(self, field):
+        if User.query.filter_by(username=field.data).first():
+            raise ValidationError('Username already in use.')
