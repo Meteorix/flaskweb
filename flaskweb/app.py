@@ -7,7 +7,7 @@ from flask_migrate import Migrate
 from flask_admin import Admin, AdminIndexView, expose
 from flask_admin.contrib.sqla import ModelView as _ModelView
 from flask.logging import default_handler
-from flask_login import current_user
+from flask_login import current_user, login_required
 from flask_restplus import Api
 from logging import Formatter, FileHandler
 from flaskweb.config import configs
@@ -52,13 +52,12 @@ def create_app(config):
 
     # admin
     admin.init_app(app, index_view=AdminIndex())
-    admin.add_view(ModelView(auth_models.User, db.session))
+    admin.add_view(AdminOnlyModelView(auth_models.User, db.session))
 
     return app
 
 
 def create_logger(app):
-    # log to stderr
     formatter = Formatter('[%(asctime)s] [%(filename)s:%(lineno)d] [%(levelname)s]\t%(message)s')
     default_handler.setFormatter(formatter)
 
@@ -73,14 +72,15 @@ def gevent_run(app, host="127.0.0.1", port=5000):
     WSGIServer((host, int(port)), app).serve_forever()
 
 
-class ModelView(_ModelView):
+class AdminOnlyModelView(_ModelView):
     def is_accessible(self):
         return current_user.is_admin
 
 
 class AdminIndex(AdminIndexView):
     @expose("/")
+    @login_required
     def index(self):
-        if not current_user.is_admin:
+        if not current_user.is_authenticated():
             return abort(403)
         return super().index()
