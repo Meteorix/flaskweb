@@ -11,6 +11,7 @@ class User(db.Model):
     password = db.Column(db.String)
     email = db.Column(db.String)
     authenticated = db.Column(db.Boolean, default=False)
+    active = db.Column(db.Boolean, default=False)
     is_admin = db.Column(db.Boolean, default=False)
 
     def check_password(self, value):
@@ -18,7 +19,7 @@ class User(db.Model):
 
     def is_active(self):
         """True, as all users are active."""
-        return True
+        return self.active
 
     def get_id(self):
         """Return the id to satisfy Flask-Login's requirements."""

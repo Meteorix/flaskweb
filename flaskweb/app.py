@@ -74,6 +74,8 @@ def gevent_run(app, host="127.0.0.1", port=5000):
 
 class AdminOnlyModelView(ModelView):
     def is_accessible(self):
+        if not current_user.is_active:
+            return False
         if current_app.debug:
             return True
         return current_user.is_admin
@@ -83,6 +85,4 @@ class AdminIndex(AdminIndexView):
     @expose("/")
     @login_required
     def index(self):
-        if not (current_app.debug or current_user.is_authenticated()):
-            abort(403)
         return super().index()

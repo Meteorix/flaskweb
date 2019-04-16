@@ -1,4 +1,4 @@
-from flask import redirect, request, url_for, flash, render_template, Blueprint
+from flask import redirect, request, url_for, flash, render_template, Blueprint, current_app
 from flask_login import LoginManager, login_user, logout_user, login_required
 from werkzeug.security import generate_password_hash
 from .models import db, User
@@ -47,9 +47,12 @@ def register():
     form = RegistrationForm()
     if form.validate_on_submit():
         pswd = generate_password_hash(form.password.data)
+        # todo: auto activate users in debug mode
+        active = True if current_app.debug else False
         user = User(email=form.email.data,
                     username=form.username.data,
-                    password=pswd)
+                    password=pswd,
+                    active=active)
         db.session.add(user)
         db.session.commit()
         # todo: email verification process
