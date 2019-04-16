@@ -151,6 +151,15 @@ A more [sophisticated example](./example)
 1. linux知识《APUE》
 1. ...
 
+# Development
+
+```bash
+python setup.py build
+python setup.py sdist
+# release to pypi
+python -m twine upload dist/...
+```
+
 # Thanks
 *   https://github.com/miguelgrinberg/flasky
 *   https://github.com/JackStouffer/Flask-Foundation
