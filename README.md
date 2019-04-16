@@ -118,7 +118,7 @@ A more [sophisticated example](./example)
 
 1. 当然你需要先注册用户
 
-    在注册页面上注册好之后，`debug``模式运行会自动激活账号，直接登录
+    在注册页面上注册好之后，``debug``模式运行会自动激活账号，直接登录
 
     非``debug``模式需要找管理员激活账号：管理员访问admin页面 [http://127.0.0.1:5000/admin/user](http://127.0.0.1:5000/admin/user)，勾选用户的``active``属性
 
