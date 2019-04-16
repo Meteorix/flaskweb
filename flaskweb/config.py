@@ -14,6 +14,7 @@ class Config(object):
 
 
 class DebugConfig(Config):
+    DEBUG = True
     SQLALCHEMY_TRACK_MODIFICATIONS = True
     LOGGING_LEVEL = logging.DEBUG
 

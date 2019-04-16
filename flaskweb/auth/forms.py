@@ -15,17 +15,17 @@ class LoginForm(FlaskForm):
     def validate(self):
         check_validate = super(LoginForm, self).validate()
 
-        # if our validators do not pass
+        # Do validators pass
         if not check_validate:
             return False
 
-        # Does our the exist
+        # Does username exist
         user = User.query.filter_by(username=self.username.data).first()
         if not user:
             self.username.errors.append('Invalid username or password')
             return False
 
-        # Do the passwords match
+        # Does password match
         if not user.check_password(self.password.data):
             self.username.errors.append('Invalid username or password')
             return False

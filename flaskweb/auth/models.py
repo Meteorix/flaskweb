@@ -1,15 +1,9 @@
 """db models."""
 from flaskweb.app import db
+from werkzeug.security import check_password_hash
 
 
 class User(db.Model):
-    """An admin user capable of viewing reports.
-
-    :param str email: email address of user
-    :param str password: encrypted password for the user
-
-    """
-
     __tablename__ = 'user'
 
     id = db.Column(db.Integer, primary_key=True)
@@ -20,8 +14,7 @@ class User(db.Model):
     is_admin = db.Column(db.Boolean, default=False)
 
     def check_password(self, value):
-        # return check_password_hash(self.password, value)
-        return self.password == value
+        return check_password_hash(self.password, value)
 
     def is_active(self):
         """True, as all users are active."""

@@ -1,5 +1,6 @@
 from flask import redirect, request, url_for, flash, render_template, Blueprint
 from flask_login import LoginManager, login_user, logout_user, login_required
+from werkzeug.security import generate_password_hash
 from .models import db, User
 from .forms import LoginForm, RegistrationForm
 
@@ -45,9 +46,10 @@ def logout():
 def register():
     form = RegistrationForm()
     if form.validate_on_submit():
+        pswd = generate_password_hash(form.password.data)
         user = User(email=form.email.data,
                     username=form.username.data,
-                    password=form.password.data)
+                    password=pswd)
         db.session.add(user)
         db.session.commit()
         # todo: email verification process

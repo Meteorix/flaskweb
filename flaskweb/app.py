@@ -1,11 +1,11 @@
 # coding=utf-8
 # Created by Meteorix at 2019/4/10
 
-from flask import Flask, abort
+from flask import Flask, abort, current_app
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_admin import Admin, AdminIndexView, expose
-from flask_admin.contrib.sqla import ModelView as _ModelView
+from flask_admin.contrib.sqla import ModelView
 from flask.logging import default_handler
 from flask_login import current_user, login_required
 from flask_restplus import Api
@@ -72,8 +72,10 @@ def gevent_run(app, host="127.0.0.1", port=5000):
     WSGIServer((host, int(port)), app).serve_forever()
 
 
-class AdminOnlyModelView(_ModelView):
+class AdminOnlyModelView(ModelView):
     def is_accessible(self):
+        if current_app.debug:
+            return True
         return current_user.is_admin
 
 
@@ -81,6 +83,6 @@ class AdminIndex(AdminIndexView):
     @expose("/")
     @login_required
     def index(self):
-        if not current_user.is_authenticated():
-            return abort(403)
+        if not (current_app.debug or current_user.is_authenticated()):
+            abort(403)
         return super().index()
