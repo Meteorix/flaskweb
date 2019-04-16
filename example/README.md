@@ -6,8 +6,8 @@ $ pip install -U flaskweb
 # migrate db after changing db.models
 $ cd example
 $ flask db init
-$ flask db upgrade
 $ flask db migrate
+$ flask db upgrade
 
 # run server
 $ python wsgi.py
