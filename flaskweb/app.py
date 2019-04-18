@@ -22,9 +22,6 @@ api = Api(doc="/swagger/", prefix="/api")
 def create_app(config):
     app = Flask(
         __name__,
-        static_url_path='/static',
-        static_folder='static',
-        template_folder='templates',
     )
     if isinstance(config, str):
         config = configs[config]

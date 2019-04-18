@@ -1,8 +1,13 @@
 from flask import Blueprint, render_template, redirect
 from flask_login import login_required, current_user
+import os
 
 
-bp = Blueprint("main", "main", url_prefix="/main")
+basedir = os.path.dirname(os.path.abspath(__file__))
+bp = Blueprint("main", "main", url_prefix="/main",
+               static_url_path="/static",
+               static_folder=os.path.join(basedir, "static"),
+               template_folder=os.path.join(basedir, "templates"))
 
 
 @bp.route('/')
