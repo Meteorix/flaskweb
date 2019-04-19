@@ -7,9 +7,9 @@ class User(db.Model):
     __tablename__ = 'user'
 
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String)
-    password = db.Column(db.String)
-    email = db.Column(db.String)
+    username = db.Column(db.String(40))
+    password = db.Column(db.String(40))
+    email = db.Column(db.String(40))
     authenticated = db.Column(db.Boolean, default=False)
     active = db.Column(db.Boolean, default=False)
     is_admin = db.Column(db.Boolean, default=False)
