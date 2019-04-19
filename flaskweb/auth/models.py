@@ -8,7 +8,7 @@ class User(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(40))
-    password = db.Column(db.String(40))
+    password = db.Column(db.String(60))
     email = db.Column(db.String(40))
     authenticated = db.Column(db.Boolean, default=False)
     active = db.Column(db.Boolean, default=False)
