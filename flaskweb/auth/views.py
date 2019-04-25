@@ -22,7 +22,7 @@ def login():
 
     if form.validate_on_submit():
         if check_user_login(form.username.data, form.password.data):
-            return redirect(nexturl or url_for("main.index"))
+            return redirect(nexturl or current_app.config.get("LOGIN_REDIRECT_URL") or url_for("main.index"))
 
     return render_template("login.html", form=form, nexturl=nexturl)
 
