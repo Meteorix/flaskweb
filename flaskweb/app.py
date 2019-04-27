@@ -50,7 +50,7 @@ def create_app(config):
     # api
     api.init_app(app)
 
-    @app.route("/swagger")
+    @app.route("/swagger/")
     @login_required
     def swagger():
         return swagger_ui_for(api)
