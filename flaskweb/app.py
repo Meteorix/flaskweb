@@ -9,6 +9,7 @@ from flask_admin.contrib.sqla import ModelView
 from flask.logging import default_handler
 from flask_login import current_user, login_required
 from flask_restplus import Api
+from flask_restplus.apidoc import ui_for as swagger_ui_for
 from logging import Formatter, FileHandler
 from flaskweb.config import configs
 from gevent.pywsgi import WSGIServer
@@ -16,14 +17,14 @@ from gevent.pywsgi import WSGIServer
 
 db = SQLAlchemy()
 admin = Admin()
-api = Api(doc="/swagger/", prefix="/api")
+api = Api(doc=None, prefix="/api")
 
 
 def create_app(config):
     app = Flask(
         __name__,
-	static_folder=None,
-	template_folder=None,
+        static_folder=None,
+        template_folder=None,
     )
     if isinstance(config, str):
         config = configs[config]
@@ -48,6 +49,11 @@ def create_app(config):
 
     # api
     api.init_app(app)
+
+    @app.route("/swagger")
+    @login_required
+    def swagger():
+        return swagger_ui_for(api)
 
     # admin
     admin.init_app(app, index_view=AdminIndex())

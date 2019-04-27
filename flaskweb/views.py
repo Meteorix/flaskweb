@@ -19,9 +19,3 @@ def index():
 @login_required
 def user():
     return 'hello world %s' % current_user.username
-
-
-@bp.route('/doc')
-@login_required
-def doc():
-    return redirect("/swagger")
