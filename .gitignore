@@ -38,6 +38,7 @@ nosetests.xml
 .DS_Store
 openidstore/
 *.log
+gunicorn.pid
 
 node_modules/
 venv/

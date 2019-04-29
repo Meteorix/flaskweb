@@ -17,4 +17,9 @@ $ python wsgi.py
 *   http://127.0.0.1:5000/admin  # for db admin page
 *   http://127.0.0.1:5000/swagger  # for swagger ui
 
+# deployment
+```shell
+gunicorn -c gunicorn_config.py wsgi:app
+```
+
 For more details, visit: https://github.com/Meteorix/flaskweb

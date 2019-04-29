@@ -78,9 +78,10 @@ A more [sophisticated example](./example)
 *   use as a 3rd library
 *   frontend with bootstrap/jquery
 *   setup.py for distribution
+*   gunicorn
 
 ## more todos
-*   deployment: nginx/gunicorn
+*   nginx
 *   more samples: tensorflow/pytorch webapp
 *   jwt
 *   cythonize
@@ -188,3 +189,4 @@ todo: cythonize/bdist_wheel & pyinstaller
 # Thanks
 *   https://github.com/miguelgrinberg/flasky
 *   https://github.com/JackStouffer/Flask-Foundation
+

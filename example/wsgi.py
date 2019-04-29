@@ -12,7 +12,7 @@ basedir = os.path.dirname(os.path.abspath(__file__))
 class MyConfig(DebugConfig):
     # override default Configs
     SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'app.db')
-    LOGGING_FILE = os.path.join(basedir, "app.log")
+    LOGGING_FILE = os.path.join(basedir, "logs", "app.log")
     UPLOAD_DIR = os.path.join(basedir, "uploads")
 
 
