@@ -74,7 +74,7 @@ A more [sophisticated example](./example)
 *   user login
 *   db admin
 *   restful api with swagger ui
-*   gunicorn/gevent deployment
+*   gevent
 *   use as a 3rd library
 *   frontend with bootstrap/jquery
 *   setup.py for distribution
