@@ -4,9 +4,9 @@ flask-sqlalchemy
 flask-migrate
 flask-script
 flask-admin
-flask-restplus
 flask-login
 flask-wtf
 flask-script
+flasgger
 gunicorn
 gevent

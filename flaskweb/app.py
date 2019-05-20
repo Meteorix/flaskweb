@@ -1,15 +1,16 @@
 # coding=utf-8
 # Created by Meteorix at 2019/4/10
 
-from flask import Flask, abort, current_app
+from flask import Flask, current_app
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_admin import Admin, AdminIndexView, expose
 from flask_admin.contrib.sqla import ModelView
 from flask.logging import default_handler
 from flask_login import current_user, login_required
-from flask_restplus import Api
-from flask_restplus.apidoc import ui_for as swagger_ui_for
+from flasgger import Swagger
+# from flask_restplus import Api
+# from flask_restplus.apidoc import ui_for as swagger_ui_for
 from logging import Formatter, FileHandler
 from flaskweb.config import configs
 from gevent.pywsgi import WSGIServer
@@ -17,7 +18,7 @@ from gevent.pywsgi import WSGIServer
 
 db = SQLAlchemy()
 admin = Admin()
-api = Api(doc=None, prefix="/api")
+# api = Api(doc=None, prefix="/api")
 
 
 def create_app(config):
@@ -48,12 +49,12 @@ def create_app(config):
     app.register_blueprint(auth_views.bp)
 
     # api
-    api.init_app(app)
+    swagger = Swagger(app)
 
-    @app.route("/swagger/")
-    @login_required
-    def swagger():
-        return swagger_ui_for(api)
+    # @app.route("/swagger/")
+    # @login_required
+    # def swagger():
+    #     return swagger_ui_for(api)
 
     # admin
     admin.init_app(app, index_view=AdminIndex())
