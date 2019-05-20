@@ -1,9 +1,10 @@
 """db models."""
 from flaskweb.app import db
+from flask_login import UserMixin
 from werkzeug.security import check_password_hash
 
 
-class User(db.Model):
+class User(UserMixin, db.Model):
     __tablename__ = 'user'
 
     id = db.Column(db.Integer, primary_key=True)
@@ -25,13 +26,13 @@ class User(db.Model):
         """Return the id to satisfy Flask-Login's requirements."""
         return self.id
 
-    def is_authenticated(self):
-        """Return True if the user is authenticated."""
-        return self.authenticated
-
-    def is_anonymous(self):
-        """False, as anonymous users aren't supported."""
-        return False
+    # def is_authenticated(self):
+    #     """Return True if the user is authenticated."""
+    #     return self.authenticated
+    #
+    # def is_anonymous(self):
+    #     """False, as anonymous users aren't supported."""
+    #     return False
 
     def __repr__(self):
         return '<user %r>' % self.username
