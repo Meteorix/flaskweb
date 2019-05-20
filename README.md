@@ -41,7 +41,7 @@ if __name__ == "__main__":
 *   用户登录系统
 *   orm/migrate
 *   db管理页面
-*   restapi/swaggerui
+*   swaggerui
 *   gevent服务器
 
 |||
@@ -132,9 +132,9 @@ A more [sophisticated example](./example)
 
 1. 定义restful api，使用swagger ui调试
 
-    参考 [example/views.py](./example/views.py)
+    python代码参考 [example/views.py](./example/views.py), api spec参考[OpenAPI](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md)
 
-    访问 http://127.0.0.1:5000/swagger/ 调试API，调试好就可以给前端工程师开发前端了
+    访问 http://127.0.0.1:5000/apidocs/ 调试API，调试好就可以给前端工程师开发前端了
 
 1. 前端工程师输出前端代码
 
