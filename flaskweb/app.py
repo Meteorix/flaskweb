@@ -9,8 +9,6 @@ from flask_admin.contrib.sqla import ModelView
 from flask.logging import default_handler
 from flask_login import current_user, login_required
 from flasgger import Swagger
-# from flask_restplus import Api
-# from flask_restplus.apidoc import ui_for as swagger_ui_for
 from logging import Formatter, FileHandler
 from flaskweb.config import configs
 from gevent.pywsgi import WSGIServer
@@ -18,7 +16,6 @@ from gevent.pywsgi import WSGIServer
 
 db = SQLAlchemy()
 admin = Admin()
-# api = Api(doc=None, prefix="/api")
 
 
 def create_app(config):
@@ -49,7 +46,6 @@ def create_app(config):
     app.register_blueprint(auth_views.bp)
 
     # api
-    swagger = Swagger(app)
 
     # @app.route("/swagger/")
     # @login_required
@@ -60,6 +56,7 @@ def create_app(config):
     admin.init_app(app, index_view=AdminIndex())
     admin.add_view(AdminOnlyModelView(auth_models.User, db.session))
 
+    swag = Swagger(app)
     return app
 
 

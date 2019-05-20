@@ -1,0 +1,13 @@
+endpoint creating a todo item
+This is using docstrings for specifications.
+---
+parameters:
+  - name: file
+    in: formData
+    type: file
+    required: true
+responses:
+  200:
+    description: upload results
+    examples:
+      json: {"result": "ok"}

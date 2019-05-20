@@ -1,6 +1,6 @@
 # coding=utf-8
 # Created by Meteorix at 2019/4/10
-from flaskweb.app import create_app, gevent_run, db, api, admin, ModelView
+from flaskweb.app import create_app, gevent_run, db, admin, ModelView
 from flaskweb.config import DebugConfig
 import models
 import views
@@ -18,8 +18,6 @@ class MyConfig(DebugConfig):
 
 app = create_app(MyConfig)
 app.register_blueprint(views.bp)
-# api
-api.add_namespace(views.api)
 # admin
 admin.add_view(ModelView(models.Todo, db.session))
 admin.add_view(ModelView(models.TodoItem, db.session))
