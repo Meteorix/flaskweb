@@ -1,0 +1,32 @@
+{
+  "newsAnalyseResult": [
+		{
+			"company": "红杉科技",
+			"labels": [
+				{
+					"confidence": 0.085,
+					"labelName": "股权质押"
+				}
+			]
+		},
+		{
+			"company": "新浪科技",
+			"labels": [
+				{
+					"confidence": 0.085,
+					"labelName": "股权质押"
+				}
+			]
+		},
+		{
+			"company": "百度科技",
+			"labels": [
+				{
+					"confidence": 0.085,
+					"labelName": "股权质押"
+				}
+			]
+		}
+	],
+	"success": true
+}

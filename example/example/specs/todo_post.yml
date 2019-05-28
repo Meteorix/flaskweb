@@ -1,0 +1,15 @@
+endpoint creating a todo item
+This is using docstrings for specifications.
+---
+parameters:
+  - name: name
+    in: formData
+    type: string
+    required: true
+  - name: tag
+    in: formData
+    type: string
+    required: true
+responses:
+  200:
+    description: created todo

@@ -1,12 +1,9 @@
-# coding=utf-8
-# Created by Meteorix at 2019/4/10
-from flaskweb.app import create_app, gevent_run, db, admin, ModelView
-from flaskweb.config import DebugConfig
-import models
-import views
+#coding=utf-8
+from example.app import DebugConfig, init_app, gevent_run
 import os
 
-basedir = os.path.dirname(os.path.abspath(__file__))
+
+basedir = os.path.dirname(os.path.abspath(__file__)) or "."
 
 
 class MyConfig(DebugConfig):
@@ -16,11 +13,7 @@ class MyConfig(DebugConfig):
     UPLOAD_DIR = os.path.join(basedir, "uploads")
 
 
-app = create_app(MyConfig)
-app.register_blueprint(views.bp)
-# admin
-admin.add_view(ModelView(models.Todo, db.session))
-admin.add_view(ModelView(models.TodoItem, db.session))
+app = init_app(MyConfig)
 
 
 if __name__ == "__main__":

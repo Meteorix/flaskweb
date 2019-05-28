@@ -1,6 +1,0 @@
-endpoint returning list of todo item
-This is using docstrings for specifications.
----
-responses:
-  200:
-    description: list of todo

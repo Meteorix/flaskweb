@@ -81,6 +81,7 @@ A more [sophisticated example](./example)
 *   gunicorn
 
 ## more todos
+*   celery
 *   nginx
 *   more samples: tensorflow/pytorch webapp
 *   jwt

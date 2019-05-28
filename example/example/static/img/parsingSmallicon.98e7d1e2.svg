@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="88px" height="88px" viewBox="0 0 88 88" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
+    <title>解析小icon</title>
+    <desc>Created with Sketch.</desc>
+    <g id="解析小icon" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <polygon id="Rectangle-3" fill="#2B50BB" points="0 0 44 0 55 11 55 77 0 77"></polygon>
+        <rect id="Rectangle-3-Copy" fill="#62D0FF" x="33" y="11" width="55" height="77"></rect>
+        <rect id="Rectangle-4" fill="#FFFFFF" x="44" y="22" width="33" height="11"></rect>
+        <rect id="Rectangle-4-Copy" fill="#FFFFFF" x="44" y="44" width="33" height="11"></rect>
+        <rect id="Rectangle-4-Copy-2" fill="#FFFFFF" x="44" y="66" width="22" height="11"></rect>
+        <polygon id="Path-4" fill="#8CA6F4" points="44 0 55 11 44 11.0261195"></polygon>
+    </g>
+</svg>
