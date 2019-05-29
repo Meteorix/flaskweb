@@ -128,11 +128,11 @@ A more [sophisticated example](./example)
 
 1. 定义数据库orm，使用admin页面管理
 
-    参考 [example/models.py](./example/models.py)
+    参考 [example/models.py](./example/example/models.py)
 
 1. 定义restful api，使用swagger ui调试
 
-    python代码参考 [example/views.py](./example/views.py), api spec参考[OpenAPI](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md)
+    python代码参考 [example/views.py](./example/example/views.py), api spec参考[OpenAPI](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md)
 
     访问 http://127.0.0.1:5000/apidocs/ 调试API，调试好就可以给前端工程师开发前端了
 
