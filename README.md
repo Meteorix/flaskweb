@@ -65,7 +65,6 @@ then visit http://127.0.0.1:5000/
 A more [sophisticated example](./example)
 
 
-
 # Features
 *   flask
 *   sqlalchemy
@@ -78,6 +77,7 @@ A more [sophisticated example](./example)
 *   use as a 3rd library
 *   frontend with bootstrap/jquery
 *   setup.py for distribution
+*   cythonize
 *   gunicorn
 
 ## more todos
@@ -85,7 +85,6 @@ A more [sophisticated example](./example)
 *   nginx
 *   more samples: tensorflow/pytorch webapp
 *   jwt
-*   cythonize
 *   pyinstaller
 *   dockerfile
 *   performance/benchmark
@@ -184,10 +183,14 @@ python setup.py build
 python setup.py sdist --formats=zip
 ```
 
-todo: cythonize/bdist_wheel & pyinstaller
+Or cythonize and dist as wheel for better encryption
+```bash
+python setup.py bdist_wheel
+```
+
+todo: pyinstaller
 
 
 # Thanks
 *   https://github.com/miguelgrinberg/flasky
 *   https://github.com/JackStouffer/Flask-Foundation
-

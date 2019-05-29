@@ -15,11 +15,25 @@ $ python wsgi.py
 *   http://127.0.0.1:5000/  # for app index page
 *   http://127.0.0.1:5000/main  # for dev index page
 *   http://127.0.0.1:5000/admin  # for db admin page
-*   http://127.0.0.1:5000/swagger  # for swagger ui
+*   http://127.0.0.1:5000/apidocs  # for swagger ui
 
-# deployment
+# Deployment
 ```shell
 gunicorn -c gunicorn_config.py wsgi:app
 ```
 
-For more details, visit: https://github.com/Meteorix/flaskweb
+# Distribution
+
+Distribute example project using [setup.py](./setup.py)
+
+```bash
+cd example
+python setup.py build
+python setup.py sdist --formats=zip
+```
+
+Or cythonize and dist as wheel for better encryption
+
+```bash
+python setup.py bdist_wheel
+```

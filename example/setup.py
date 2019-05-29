@@ -30,8 +30,7 @@ if cythonizing:
             if not modname.endswith("__init__"):
                 ext = Extension(modname, [filepath])
                 extensions.append(ext)
-
-print(extensions)
+    print(extensions)
 
 
 class my_build_py(build_py):
@@ -49,7 +48,6 @@ setup(
     author='meteorix',
     author_email='lxhustauto@gmail.com',
     description='Example web app built with flaskweb',
-    include_package_data=True,
     install_requires=['flaskweb'],
     ext_modules=cythonize(
         extensions,
