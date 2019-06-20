@@ -1,6 +1,5 @@
 # encoding=utf-8
 from flask import request, Blueprint, render_template, redirect, url_for, jsonify, current_app as app
-from werkzeug.datastructures import FileStorage
 from flask_login import login_required, current_user
 from flaskweb.app import db
 from flaskweb.auth.views import check_user_login
@@ -18,10 +17,10 @@ bp = Blueprint(modname, modname, static_url_path="",
 
 @bp.route("/")
 def index():
-    # create dist/index.html, or default to demo index page
+    # create static/index.html, or default to debug index page
     app.logger.info("got you at index")
     app.logger.error("got a fake error")
-    return render_template(["index.html", "main.html"])
+    return render_template(["index.html", "debug.html"])
 
 
 @bp.route("/api/login", methods=["POST"])

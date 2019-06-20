@@ -14,9 +14,9 @@
             <meta name="author" content="">
         {% endblock %}
 
-        <link rel="stylesheet" type="text/css" href="/main/static/css/vendor/bootstrap.min.css" />
-        <link rel="stylesheet" type="text/css" href="/main/static/css/vendor/helper.css" />
-        <link rel="stylesheet" type="text/css" href="/main/static/css/main.css" />
+        <link rel="stylesheet" type="text/css" href="/debug/static/css/vendor/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="/debug/static/css/vendor/helper.css" />
+        <link rel="stylesheet" type="text/css" href="/debug/static/css/main.css" />
 
         {% block css %}
         {% endblock %}
@@ -34,7 +34,7 @@
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url_for('main.index') }}">Home</a></li>
+                    <li><a href="{{ url_for('debug.index') }}">Home</a></li>
 
                     {% if not current_user.is_authenticated %}
                         <li><a href="{{ url_for('auth.login') }}">Login</a></li>
@@ -42,7 +42,7 @@
                         <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
                     {% endif %}
 
-                    <li><a href="{{ url_for('main.user') }}">User</a></li>
+                    <li><a href="{{ url_for('debug.user') }}">User</a></li>
                     <li><a href="{{ url_for('flasgger.apidocs') }}">API</a></li>
                     <li><a href="/admin">Admin</a></li>
                 </ul>
@@ -65,8 +65,8 @@
             {% endblock %}
         </div>
 
-        <script type="text/javascript" src="/main/static/js/vendor/jquery.min.js"></script>
-        <script type="text/javascript" src="/main/static/js/vendor/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/debug/static/js/vendor/jquery.min.js"></script>
+        <script type="text/javascript" src="/debug/static/js/vendor/bootstrap.min.js"></script>
 
         {% block js %}
         {% endblock %}

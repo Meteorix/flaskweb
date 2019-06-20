@@ -32,7 +32,7 @@ app = create_app("debug")
 
 @app.route("/")
 def index():
-    return render_template("main.html")
+    return render_template("debug.html")
 
 if __name__ == "__main__":
     gevent_run(app)
@@ -103,7 +103,7 @@ A more [sophisticated example](./example)
     ```python
     @app.route("/")
     def index():
-        return render_template("main.html")
+        return render_template(debug.html)
     ```
     启动服务器，访问 http://127.0.0.1:5000/
     ```bash

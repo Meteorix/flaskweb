@@ -4,7 +4,7 @@ import os
 
 
 basedir = os.path.dirname(os.path.abspath(__file__))
-bp = Blueprint("main", "main", url_prefix="/main",
+bp = Blueprint("debug", "debug", url_prefix="/debug",
                static_url_path="/static",
                static_folder=os.path.join(basedir, "static"),
                template_folder=os.path.join(basedir, "templates"))
@@ -12,7 +12,7 @@ bp = Blueprint("main", "main", url_prefix="/main",
 
 @bp.route('/')
 def index():
-    return render_template('main.html')
+    return render_template('debug.html')
 
 
 @bp.route('/user')
