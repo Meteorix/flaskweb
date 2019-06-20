@@ -1,0 +1,14 @@
+endpoint creating a todo item
+This is using docstrings for specifications.
+---
+parameters:
+  - name: get_input
+    in: query
+    type: string
+    required: true
+    default: all
+responses:
+  200:
+    description: simple_get
+    examples:
+      json: {"get_output": "Hello world!"}
