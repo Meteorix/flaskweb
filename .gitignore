@@ -47,7 +47,7 @@ app.db
 myapp.db
 uploads/
 simple/migrations
-example/static/*
-example/templates/*
+example/example/static/*
+example/example/templates/*
 
 gh-md-toc
