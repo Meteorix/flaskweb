@@ -1,7 +1,10 @@
 from flaskweb.app import create_app, gevent_run
 from flask_login import current_user
 from flasgger import swag_from
-from flask import render_template, jsonify, request
+from flask import render_template, jsonify, request, send_file
+import subprocess as sb
+import os
+
 
 app = create_app("debug")
 
@@ -43,5 +46,40 @@ def post_or_get_example():
         return jsonify({"post_output": post_output})
 
 
+@app.route('/upload', methods=["POST"])
+def upload():
+    """
+    Api for upload and download file
+    ---
+    parameters:
+    - name: file
+      required: false
+      in: formData
+      type: file
+    responses:
+      200:
+        description: download file or error info
+        examples:
+            json: { "error": "...", "success": false}
+    """
+    fs = request.files['file']
+    upload_dir = "uploads"
+    if not os.path.exists(upload_dir):
+        os.makedirs(upload_dir)
+    filepath = os.path.join(upload_dir, fs.filename)
+    fs.save(filepath)
+    # example: call external programs
+    out_path = filepath + ".copy"
+    print(filepath, out_path)
+    proc = sb.Popen(["cp", filepath, out_path], stdout=sb.PIPE, stderr=sb.STDOUT)
+    out, err = proc.communicate()
+    app.logger.info(out.decode("gbk"))
+
+    if proc.returncode == 0:
+        return send_file(os.path.abspath(out_path), as_attachment=True)
+    else:
+        return jsonify({"error": out, "success": False})
+
+
 if __name__ == "__main__":
-    gevent_run(app)
+    gevent_run(app, port=5002)
