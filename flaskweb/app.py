@@ -18,7 +18,7 @@ db = SQLAlchemy()
 admin = Admin()
 
 
-def create_app(config):
+def create_app(config, disable_debug_bp=False):
     app = Flask(
         __name__,
         static_folder=None,
@@ -41,9 +41,14 @@ def create_app(config):
     import flaskweb.auth.models as auth_models
     import flaskweb.auth.views as auth_views
 
-    auth_views.login_manager.init_app(app)
-    app.register_blueprint(main_views.bp)
-    app.register_blueprint(auth_views.bp)
+    if not disable_debug_bp:
+        auth_views.login_manager.init_app(app)
+        app.register_blueprint(main_views.bp)
+        app.register_blueprint(auth_views.bp)
+
+    # admin
+    admin.init_app(app, index_view=AdminIndex())
+    admin.add_view(AdminOnlyModelView(auth_models.User, db.session))
 
     # api
 
@@ -51,10 +56,6 @@ def create_app(config):
     # @login_required
     # def swagger():
     #     return swagger_ui_for(api)
-
-    # admin
-    admin.init_app(app, index_view=AdminIndex())
-    admin.add_view(AdminOnlyModelView(auth_models.User, db.session))
 
     swag = Swagger(app)
     return app
